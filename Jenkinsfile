@@ -9,5 +9,14 @@ pipeline {
                 sh 'pwd'
             }
         }
+        stage('Build') {
+            steps {
+                script {
+                    sh 'cd client'
+                    docker.build('frontend:${BUILD_ID}')
+                    sh 'docker images'
+                }
+            }
+        }
     }
 }
