@@ -3,9 +3,10 @@ pipeline {
         label 'docker-agent'
     }
     stages {
-        stage('Test') {
+        stage('Get Source') {
             steps {
-                sh 'Hello From Real Estate'
+                sh 'ls'
+                sh 'pwd'
             }
         }
     }
