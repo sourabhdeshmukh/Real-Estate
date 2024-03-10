@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     sh 'cd client'
-                    docker.build('frontend:${BUILD_ID}')
+                    sh 'docker build -t frontend:${BUILD_ID}'
                     sh 'docker images'
                 }
             }
