@@ -13,8 +13,7 @@ pipeline {
             steps {
                 script {
                     sh 'cd client'
-                    def version = ${BUILD_ID}
-                    docker.build('frontend:${version}')
+                    sh 'which docker'
                 }
             }
         }
