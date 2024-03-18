@@ -2,9 +2,9 @@ version: "3"
 services:
    frontend:
        container_name: re-frontend
-       image: real-estate-frontend
+       image: sourabhdeshmukh/real-estate-frontend:latest
        restart: always
-       build: ./client/.
+       #build: ./client/.
        ports:
          - "5173:5173"
        networks:
@@ -17,9 +17,9 @@ services:
 
    backend:
        container_name: re-backend
-       image: real-estate-backend 
+       image: sourabhdeshmukh/real-estate-backend:latest 
        restart: always
-       build: ./server/.
+       #build: ./server/.
        volumes:
          - ./server/.env:/app/.env
        ports:
