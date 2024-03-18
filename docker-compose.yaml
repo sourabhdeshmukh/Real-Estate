@@ -1,0 +1,47 @@
+version: "3"
+services:
+   frontend:
+       container_name: re-frontend
+       image: sourabhdeshmukh/real-estate-frontend:latest
+       restart: always
+       #build: ./client/.
+       ports:
+         - "5173:5173"
+       networks:
+         - real-estate-app
+       volumes:
+         - ./client/.env:/app/.env
+       links:
+         - mongo
+         - backend
+
+   backend:
+       container_name: re-backend
+       image: sourabhdeshmukh/real-estate-backend:latest 
+       restart: always
+       #build: ./server/.
+       volumes:
+         - ./server/.env:/app/.env
+       ports:
+         - "3000:3000"
+       networks:
+         - real-estate-db
+         - real-estate-app
+       links:
+         - mongo
+       depends_on:
+         - mongo
+
+   mongo:
+         container_name: mongo
+         image: mongo
+         volumes:
+           - ./data:/data/db
+         networks:
+           - real-estate-db
+         ports:
+           - '27017:27017'
+
+networks:
+  real-estate-db:
+  real-estate-app:
