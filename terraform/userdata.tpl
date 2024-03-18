@@ -13,12 +13,11 @@ set -x
 ((
 
 yum update -qy
-yum install git curl wget -qy
-curl -fsSL https://get.docker.com | sh
+yum install git curl wget docker -qy
 systemctl start docker
 systemctl enable docker
 curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-Linux-x86_64 -o /usr/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
+chmod +x /usr/bin/docker-compose
 
 git clone https://github.com/sourabhdeshmukh/Real-Estate.git
 cd Real-Estate
