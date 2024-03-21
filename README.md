@@ -1,1 +1,1 @@
-Real Estate Demo Project for CICD Pipeline
+Real Estate Demo Project for CICD Pipeline.
