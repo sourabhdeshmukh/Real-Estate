@@ -1,10 +1,8 @@
 pipeline {
     agent any
-
     environment {
         DOCKER_CREDENTIALS_ID = 'dockerhub' // Credential ID in Jenkins for Docker Hub login
     }
-
     stages {
         stage('Download Source') {
             steps {
@@ -68,7 +66,6 @@ pipeline {
                     }
                 }
             }
-
         stage('Publish HTML report') {
             steps {
                 // Publish the HTML report
@@ -109,7 +106,6 @@ pipeline {
             }
         }
     }
-    
         post {
             success {
                 script {
